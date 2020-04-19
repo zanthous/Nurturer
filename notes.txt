@@ -1,0 +1,18 @@
+mechanics to add:
+
+trees-> transfer energy in a + shape
+
+plant -> moves energy within a radius toward it every tick/ generates energy
+
+portal -> transport player between two locations
+
+obstacle blocks -> untraversable tiles in small clumps
+
+surround original flower for buffs?
+
+after player has progressed a decent amount enemies start attacking structures
+
+
+alternative camera mode  
+
+set obstacles to not spawn on player
