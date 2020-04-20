@@ -42,6 +42,7 @@ public class Energy : WorldObject, ICollidable, IHoldable
             {
                 Attach();
                 player.Hold(gameObject, HoldableObject.Energy);
+                _data.flower.EnergyPickup?.Play();
             }
         }
     }

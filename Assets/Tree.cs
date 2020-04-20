@@ -48,6 +48,7 @@ public class Tree : WorldObject
             _data.flower.Position.y == _position.y) && !_data.IsObstructed(Position, Data.flower.Position))
         {
             _data.RegisterTreeConnection(Position, _data.flower.Position);
+            _data.flower.TreeConnect?.Play();
         }
 
         UpdateConnections(trees);
@@ -71,6 +72,7 @@ public class Tree : WorldObject
                 if(t._powered)
                 {
                     _data.RegisterTreeConnection(Position, t.Position);
+                    _data.flower.TreeConnect?.Play();
                     SetPowered(true, t._position);
                     return;
                 }
@@ -80,6 +82,7 @@ public class Tree : WorldObject
                 if(t._powered)
                 {
                     _data.RegisterTreeConnection(Position, t.Position);
+                    _data.flower.TreeConnect?.Play();
                     SetPowered(true, t._position);
                     return;
                 }
@@ -228,6 +231,7 @@ public class Tree : WorldObject
             player.Drop(true);
 
             _data.flower.TransactEnergy(Globals.ENERGY_HEAL_AMOUNT);
+            _data.flower.EnergyFill?.Play();
         }
     }
 }

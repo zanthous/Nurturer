@@ -26,7 +26,7 @@ public class PanelSelector : MonoBehaviour
     private Dictionary<PlaceableObject, int> _prices = new Dictionary<PlaceableObject, int>()
     { 
         { PlaceableObject.Tree, 10 },
-        { PlaceableObject.Plant, 5 },
+        { PlaceableObject.Plant, 30 },
         { PlaceableObject.Rocks, 2 }
     };
 
@@ -95,6 +95,7 @@ public class PanelSelector : MonoBehaviour
         {
             _flower.TransactEnergy(-(_prices[(PlaceableObject) (_currentSelected + 1)]));
             _data.PlaceNewObject(pos, (ObjectType)_currentSelected + 1);
+            _data.flower.PlaceObject?.Play();
         }
     }
 }

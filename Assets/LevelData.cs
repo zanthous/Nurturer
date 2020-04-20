@@ -248,8 +248,12 @@ public class LevelData : MonoBehaviour
         position.y += _halfWorldSize;
         position.y = INITIALWORLDSIZE - position.y - 1;
 
-        var type = worldData[position.y * INITIALWORLDSIZE + position.x];
-        return type == ObjectType.None;
+        var i = position.y * INITIALWORLDSIZE + position.x;
+        if( i >= INITIALWORLDSIZE * INITIALWORLDSIZE || i < 0)
+        {
+            return false;
+        }
+        return (worldData[i] == ObjectType.None);
     }
 
     public void PlaceNewObject(Vector2Int position, ObjectType type)
