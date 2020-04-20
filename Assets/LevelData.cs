@@ -243,7 +243,7 @@ public class LevelData : MonoBehaviour
 
     public bool CanPlaceObject(Vector2Int position)
     {
-        if(position.x > 98 || position.x < -99 || position.y > 98 || position.y < -99)
+        if(position.x > 99 || position.x < -100 || position.y > 99 || position.y < -100)
             return false;
         position.x += _halfWorldSize;
         position.y += _halfWorldSize;
