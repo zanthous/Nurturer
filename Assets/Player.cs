@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
             Destroy(_holdingObject);
             _holding = false;
         }
+        _holdingType = HoldableObject.None;
         _state = PlayerState.Idle;
     }
 

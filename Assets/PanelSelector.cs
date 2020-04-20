@@ -23,6 +23,8 @@ public class PanelSelector : MonoBehaviour
     private WorldBlossom _flower;
     private LevelData _data;
 
+    public static Action ObjectPlaced;
+
     private Dictionary<PlaceableObject, int> _prices = new Dictionary<PlaceableObject, int>()
     { 
         { PlaceableObject.Tree, 10 },
@@ -95,7 +97,8 @@ public class PanelSelector : MonoBehaviour
         {
             _flower.TransactEnergy(-(_prices[(PlaceableObject) (_currentSelected + 1)]));
             _data.PlaceNewObject(pos, (ObjectType)_currentSelected + 1);
-            _data.flower.PlaceObject?.Play();
+           _data.flower.PlaceObject?.Play();
+            ObjectPlaced?.Invoke();
         }
     }
 }

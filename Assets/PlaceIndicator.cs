@@ -16,6 +16,7 @@ public class PlaceIndicator : MonoBehaviour
     public static Action<Vector2Int> TryPlace;
     private Vector2Int _pos;
 
+
     void Awake()
     {
         _sr = GetComponent<SpriteRenderer>();
@@ -24,6 +25,13 @@ public class PlaceIndicator : MonoBehaviour
         _data = FindObjectOfType<LevelData>();
         if(direction == Direction.None)
             Debug.Log("Indicator direction not set");
+
+        PanelSelector.ObjectPlaced += EnableDisableWrapper;
+    }
+
+    private void EnableDisableWrapper()
+    {
+        EnableDisable(_pos, gameObject);
     }
 
     void Start()
@@ -35,6 +43,7 @@ public class PlaceIndicator : MonoBehaviour
     void OnDestroy()
     {
         PlayerMovement.PlayerMoved += EnableDisable;
+        PanelSelector.ObjectPlaced -= EnableDisableWrapper;
     }
 
     void OnMouseOver()

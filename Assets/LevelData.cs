@@ -100,7 +100,6 @@ public class LevelData : MonoBehaviour
         treeConnections.Add(new Connection(pos1, pos2));
     }
 
-    //todo debug
     public bool IsObstructed(Vector2Int pos1, Vector2Int pos2)
     {
         var difference = pos2 - pos1;
@@ -244,16 +243,12 @@ public class LevelData : MonoBehaviour
 
     public bool CanPlaceObject(Vector2Int position)
     {
+        if(position.x > 98 || position.x < -99 || position.y > 98 || position.y < -99)
+            return false;
         position.x += _halfWorldSize;
         position.y += _halfWorldSize;
         position.y = INITIALWORLDSIZE - position.y - 1;
-
-        var i = position.y * INITIALWORLDSIZE + position.x;
-        if( i >= INITIALWORLDSIZE * INITIALWORLDSIZE || i < 0)
-        {
-            return false;
-        }
-        return (worldData[i] == ObjectType.None);
+        return (worldData[position.y * INITIALWORLDSIZE + position.x] == ObjectType.None);
     }
 
     public void PlaceNewObject(Vector2Int position, ObjectType type)
