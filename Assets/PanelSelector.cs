@@ -97,6 +97,15 @@ public class PanelSelector : MonoBehaviour
         {
             _flower.TransactEnergy(-(_prices[(PlaceableObject) (_currentSelected + 1)]));
             _data.PlaceNewObject(pos, (ObjectType)_currentSelected + 1);
+            switch((ObjectType)_currentSelected + 1)
+            {
+                case ObjectType.Plant:
+                    _flower._plantsPlanted++;
+                    break;
+                case ObjectType.Tree:
+                    _flower._treesPlanted++;
+                    break;
+            }
            _data.flower.PlaceObject?.Play();
             ObjectPlaced?.Invoke();
         }

@@ -42,7 +42,7 @@ public class PlaceIndicator : MonoBehaviour
 
     void OnDestroy()
     {
-        PlayerMovement.PlayerMoved += EnableDisable;
+        PlayerMovement.PlayerMoved -= EnableDisable;
         PanelSelector.ObjectPlaced -= EnableDisableWrapper;
     }
 

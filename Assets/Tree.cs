@@ -229,7 +229,7 @@ public class Tree : WorldObject
         {
             //destroy energy
             player.Drop(true);
-
+            _data.flower._energyDeposited++;
             _data.flower.TransactEnergy(Globals.ENERGY_HEAL_AMOUNT);
             _data.flower.EnergyFill?.Play();
         }
